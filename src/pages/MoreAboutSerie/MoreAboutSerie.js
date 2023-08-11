@@ -1,41 +1,40 @@
 import { AiFillStar } from "react-icons/ai";
 
-import { useGetMovies } from "../../hooks/useGetMovies";
-
 import {
   Container,
   Main,
   SectionMoreAbout,
   BoxImgMoreAbout,
   BoxDescription,
-} from "./MoreAboutMovie.style";
+} from "./MoreAboutSerie.style";
 
-const MoreAboutMovie = () => {
-  const { movieId } = useGetMovies();
+import { useGetSeries } from "../../hooks/useGetSeries";
+
+const MoreAboutSerie = () => {
+  const { serieId } = useGetSeries();
 
   return (
     <Container>
       <Main>
         <SectionMoreAbout>
-          <h2>{movieId.title}</h2>
-
+          <h2>{serieId.name}</h2>
           <BoxImgMoreAbout>
             <div className="infoBasic">
               <p>
                 <AiFillStar style={{ color: "#F5C518" }} />{" "}
-                {movieId.vote_average}
+                {serieId.vote_average}
               </p>
-              <p>Lançamento: {movieId.release_date}</p>
-              <p>Idioma: {movieId.original_language}</p>
+              <p>Lançamento: {serieId.first_air_date}</p>
+              <p>Idioma: {serieId.original_language}</p>
             </div>
 
             <img
-              src={`https://image.tmdb.org/t/p/w500/${movieId.poster_path}`}
-              alt=""
+              src={`https://image.tmdb.org/t/p/w500/${serieId.poster_path}`}
+              alt={serieId.name}
             />
             <div className="synopsis">
               <h4>SINOPSE</h4>
-              <p>{movieId.overview}</p>
+              <p>{serieId.overview}</p>
             </div>
           </BoxImgMoreAbout>
 
@@ -46,4 +45,4 @@ const MoreAboutMovie = () => {
   );
 };
 
-export default MoreAboutMovie;
+export default MoreAboutSerie;

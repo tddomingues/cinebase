@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 
 import { ApiKey } from "../config/key";
 
+import { useParams } from "react-router-dom";
+
 export const useGetMovies = () => {
   const [listMoviesPopular, setListMoviesPopular] = useState([]);
   const [listMoviesUpcoming, setListMoviesUpcoming] = useState([]);
+  const [movieId, setMovieId] = useState([]);
+  const { id } = useParams();
 
   const options = {
     method: "GET",
@@ -33,12 +37,22 @@ export const useGetMovies = () => {
         options
       );
       const response = await getFetch.json();
-      console.log(response);
       setListMoviesUpcoming(response.results);
     };
     upcomingMovies();
   }, []);
 
+  useEffect(() => {
+    const popularMovieId = async () => {
+      const getFetch = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}`,
+        options
+      );
+      const response = await getFetch.json();
+      setMovieId(response);
+    };
+    popularMovieId();
+  }, []);
 
-  return { listMoviesPopular, listMoviesUpcoming, options };
+  return { listMoviesPopular, listMoviesUpcoming, movieId };
 };

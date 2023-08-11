@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 
+import {useParams} from "react-router-dom"
+
 import { ApiKey } from "../config/key";
 
 export const useGetSeries = () => {
   const [listSeriesPopular, setListSeriesPopular] = useState([]);
+  const [serieId, setSerieId] = useState([])
+  const {id} = useParams()
 
   const options = {
     method: "GET",
@@ -14,7 +18,7 @@ export const useGetSeries = () => {
   };
 
   useEffect(() => {
-    const popularMovies = async () => {
+    const popularSeries = async () => {
       const getFetch = await fetch(
         "https://api.themoviedb.org/3/tv/top_rated",
         options
@@ -22,8 +26,21 @@ export const useGetSeries = () => {
       const response = await getFetch.json();
       setListSeriesPopular(response.results);
     };
-    popularMovies();
+    popularSeries();
   }, []);
 
-  return { listSeriesPopular, options };
+  useEffect(() => {
+    const popularSerieId = async () => {
+      const getFetch = await fetch(
+        `https://api.themoviedb.org/3/tv/${id}`,
+        options
+      );
+      const response = await getFetch.json();
+      console.log(response)
+      setSerieId(response);
+    };
+    popularSerieId();
+  }, []);
+
+  return { listSeriesPopular, serieId };
 };

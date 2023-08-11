@@ -24,6 +24,13 @@ export const SectionMoreAbout = styled.section`
     width: 100%;
     padding: 10px;
   }
+
+  @media screen and (max-width: 480px) {
+    max-width: 300px;
+    & h2 {
+      font-size: 40px;
+    }
+  }
 `;
 
 export const BoxImgMoreAbout = styled.div`
@@ -43,7 +50,8 @@ export const BoxImgMoreAbout = styled.div`
   }
 
   & .infoBasic p,
-  .synopsis  p, .synopsis  h4 {
+  .synopsis p,
+  .synopsis h4 {
     color: #fff;
   }
 
@@ -51,13 +59,13 @@ export const BoxImgMoreAbout = styled.div`
     padding: 10px 0px 10px 0px;
   }
 
-  & .synopsis  {
+  & .synopsis {
     width: 100%;
     padding: 10px 10px 10px 10px;
     background-color: #121212;
   }
 
-  & .synopsis  h4 {
+  & .synopsis h4 {
     padding-bottom: 10px;
     font-size: 30px;
   }

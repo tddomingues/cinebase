@@ -1,26 +1,15 @@
-import { Nav, Label, Form, Banner } from "./NavBar.style";
+import { ContainerNav } from "./NavBar.style";
 
-import { BiSearchAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div>
-      {/* <Nav>
-        <a href="/">CINEBASE</a>
-      </Nav> */}
-      <Banner>
-        <div>
-          <Form>
-            <Label>
-              <input type="text" name="" id=""placeholder="Pesquise um filme..." />
-            </Label>
-            <button>
-              <BiSearchAlt />
-            </button>
-          </Form>
-        </div>
-      </Banner>
-    </div>
+    <ContainerNav>
+      <Link to="/">
+        <h1>CINEBASE</h1>
+      </Link>
+      <Link to="/">Início</Link>
+    </ContainerNav>
   );
 };
 

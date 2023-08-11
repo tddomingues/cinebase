@@ -8,6 +8,7 @@ import {
   SectionMovieUpcoming,
   BoxUpcoming,
   MovieUpcomingTitle,
+  ListMovieResponsive,
   /* */
   SectionPopularMovies,
   BoxMoviePopular,
@@ -34,16 +35,19 @@ const Home = () => {
             <h2>FILMES POR VIR</h2>
           </MovieUpcomingTitle>
 
-          {listMoviesUpcoming &&
-            listMoviesUpcoming.map((lmu) => (
-              <BoxUpcoming key={lmu.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${lmu.poster_path}`}
-                  alt=""
-                />
-                <div></div>
-              </BoxUpcoming>
-            ))}
+          <ListMovieResponsive>
+            {listMoviesUpcoming &&
+              listMoviesUpcoming.map((lmu) => (
+                <BoxUpcoming key={lmu.id}>
+                  <Link to={`/movie/${lmu.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${lmu.poster_path}`}
+                      alt=""
+                    />
+                  </Link>
+                </BoxUpcoming>
+              ))}
+          </ListMovieResponsive>
         </SectionMovieUpcoming>
         <SectionPopularMovies>
           <PopularMovieTitle>
@@ -71,17 +75,19 @@ const Home = () => {
           <SeriesTitle>
             <h2>SÉRIES POPULARES</h2>
           </SeriesTitle>
-
-          {listSeriesPopular &&
-            listSeriesPopular.map((lsp) => (
-              <BoxSeries key={lsp.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${lsp.poster_path}`}
-                  alt=""
-                />
-                <div></div>
-              </BoxSeries>
-            ))}
+          <ListMovieResponsive>
+            {listSeriesPopular &&
+              listSeriesPopular.map((lsp) => (
+                <BoxSeries key={lsp.id}>
+                  <Link to={`/serie/${lsp.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${lsp.poster_path}`}
+                      alt=""
+                    />
+                  </Link>
+                </BoxSeries>
+              ))}
+          </ListMovieResponsive>
         </SectionPopularSeries>
       </Main>
     </Container>
