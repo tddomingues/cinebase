@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 //tags que irão englobar o conteudo
-export const Container = styled.div`
-  background-color: #fffbff;
-`;
 export const Main = styled.main`
+  background-color: #fffbff;
   display: grid;
   grid-template-columns: 200px 600px 200px;
   justify-content: center;
@@ -17,35 +15,17 @@ export const Main = styled.main`
   }
 `;
 
-export const ListMovieResponsive = styled.div`
-  @media screen and (max-width: 1199px) {
-    display: flex;
-    gap: 10px;
-    max-width: 600px;
-    overflow-y: auto;
-    margin: auto;
-    padding: 20px;
-    background-color: #121212;
-  }
-
-  @media screen and (max-width: 480px) {
-    max-width: 300px;
-  }
-`;
 //tags que irão englobar o conteudo
 
 //section dos filmes por vir
-export const SectionMovieUpcoming = styled.section`
+export const SectionMovieSerie = styled.section`
   display: flex;
   gap: 5px;
   flex-direction: column;
   padding-top: 60px;
-
-  @media screen and (max-width: 1199px) {
-  }
 `;
 
-export const MovieUpcomingTitle = styled.div`
+export const MovieSerieTitle = styled.div`
   background-color: #000;
   width: 100%;
   height: 90px;
@@ -72,21 +52,36 @@ export const MovieUpcomingTitle = styled.div`
   }
 `;
 
-export const BoxUpcoming = styled.div`
+export const Box = styled.div`
   & img {
     width: 200px;
-    height: auto;
     transition: 0.4s;
   }
 
   & img:hover {
     opacity: 0.8;
   }
-
-  @media screen and (max-width: 1199px) {
-  }
 `;
 
+export const ListResponsive = styled.div`
+  @media screen and (max-width: 1199px) {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    overflow-y: auto;
+    margin: auto;
+    padding: 20px;
+    background-color: #121212;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 300px;
+  }
+`;
 //section dos filmes por vir
 
 //section dos filmes populares
@@ -130,7 +125,7 @@ export const PopularMovieTitle = styled.div`
 export const ListMoviesPopular = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   padding-bottom: 30px;
   background-color: #fffbff;
 
@@ -146,6 +141,7 @@ export const BoxMoviePopular = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   & h3 {
     font-size: 30px;
     color: #fffbff;
@@ -161,25 +157,20 @@ export const BoxMoviePopular = styled.div`
   }
 
   & button {
-    border: none;
+    margin-top: 20px;
     background-color: #f5c518;
     padding: 6px 8px;
     font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
     transition: 0.4s;
-  }
-
-  & div {
-    padding-top: 20px;
-  }
-
-  & a {
-    color: #121212;
   }
 
   & button:hover {
     background-color: #fffbff;
+  }
+
+  & a {
+    color: #121212;
   }
 `;
 
@@ -197,53 +188,3 @@ export const ImgTitleMoviePopular = styled.div`
   }
 `;
 //section dos filmes populares
-
-//Section das séries populares
-export const SectionPopularSeries = styled.section`
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  padding-top: 60px;
-
-  @media screen and (max-width: 1199px) {
-    padding-top: 0px;
-  }
-`;
-export const SeriesTitle = styled.section`
-  background-color: #000;
-  width: 100%;
-  height: 90px;
-  padding: 10px;
-  display: grid;
-  place-items: center;
-
-  & h2 {
-    text-align: center;
-    font-size: 20px;
-    color: #f5c518;
-  }
-
-  @media screen and (max-width: 1199px) {
-    & h2 {
-      font-size: 50px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    & h2 {
-      font-size: 20px;
-    }
-  }
-`;
-export const BoxSeries = styled.div`
-  & img {
-    width: 200px;
-    height: auto;
-    transition: 0.4s;
-  }
-
-  & img:hover {
-    opacity: 0.8;
-  }
-`;
-/*Section das séries populares*/

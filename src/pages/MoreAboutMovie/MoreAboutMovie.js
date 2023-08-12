@@ -3,46 +3,51 @@ import { AiFillStar } from "react-icons/ai";
 import { useGetMovies } from "../../hooks/useGetMovies";
 
 import {
-  Container,
   Main,
   SectionMoreAbout,
-  BoxImgMoreAbout,
-  BoxDescription,
+  BoxMoreAbout,
+  Synopsis,
+  InfoBasic,
 } from "./MoreAboutMovie.style";
 
+import { Loading } from "../../GlobalStyle";
+
+import { BiLoaderAlt } from "react-icons/bi";
+
 const MoreAboutMovie = () => {
-  const { movieId } = useGetMovies();
+  const { movieId, loadingMovie } = useGetMovies();
 
   return (
-    <Container>
-      <Main>
+    <Main>
+      {loadingMovie && (
+        <Loading>
+          <BiLoaderAlt />
+        </Loading>
+      )}
+      {!loadingMovie && (
         <SectionMoreAbout>
           <h2>{movieId.title}</h2>
-
-          <BoxImgMoreAbout>
-            <div className="infoBasic">
+          <BoxMoreAbout>
+            <InfoBasic>
               <p>
                 <AiFillStar style={{ color: "#F5C518" }} />{" "}
                 {movieId.vote_average}
               </p>
               <p>Lançamento: {movieId.release_date}</p>
               <p>Idioma: {movieId.original_language}</p>
-            </div>
-
+            </InfoBasic>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movieId.poster_path}`}
               alt=""
             />
-            <div className="synopsis">
+            <Synopsis>
               <h4>SINOPSE</h4>
               <p>{movieId.overview}</p>
-            </div>
-          </BoxImgMoreAbout>
-
-          <BoxDescription></BoxDescription>
+            </Synopsis>
+          </BoxMoreAbout>
         </SectionMoreAbout>
-      </Main>
-    </Container>
+      )}
+    </Main>
   );
 };
 

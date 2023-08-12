@@ -1,47 +1,53 @@
 import { AiFillStar } from "react-icons/ai";
 
 import {
-  Container,
   Main,
   SectionMoreAbout,
-  BoxImgMoreAbout,
-  BoxDescription,
-} from "./MoreAboutSerie.style";
+  BoxMoreAbout,
+  InfoBasic,
+  Synopsis,
+} from "../MoreAboutMovie/MoreAboutMovie.style";
 
 import { useGetSeries } from "../../hooks/useGetSeries";
 
+import { Loading } from "../../GlobalStyle";
+
+import { BiLoaderAlt } from "react-icons/bi";
+
 const MoreAboutSerie = () => {
-  const { serieId } = useGetSeries();
+  const { serieId, loadingSerie } = useGetSeries();
 
   return (
-    <Container>
-      <Main>
+    <Main>
+      {loadingSerie && (
+        <Loading>
+          <BiLoaderAlt />
+        </Loading>
+      )}
+      {!loadingSerie && (
         <SectionMoreAbout>
           <h2>{serieId.name}</h2>
-          <BoxImgMoreAbout>
-            <div className="infoBasic">
+          <BoxMoreAbout>
+            <InfoBasic>
               <p>
                 <AiFillStar style={{ color: "#F5C518" }} />{" "}
                 {serieId.vote_average}
               </p>
               <p>Lançamento: {serieId.first_air_date}</p>
               <p>Idioma: {serieId.original_language}</p>
-            </div>
-
+            </InfoBasic>
             <img
               src={`https://image.tmdb.org/t/p/w500/${serieId.poster_path}`}
               alt={serieId.name}
             />
-            <div className="synopsis">
+            <Synopsis>
               <h4>SINOPSE</h4>
               <p>{serieId.overview}</p>
-            </div>
-          </BoxImgMoreAbout>
-
-          <BoxDescription></BoxDescription>
+            </Synopsis>
+          </BoxMoreAbout>
         </SectionMoreAbout>
-      </Main>
-    </Container>
+      )}
+    </Main>
   );
 };
 

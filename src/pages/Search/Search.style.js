@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Main = styled.main`
   max-width: 600px;
@@ -6,13 +6,13 @@ export const Main = styled.main`
   padding: 0px 1em 0px 1em;
 `;
 
-export const SectionSearchMovies = styled.section`
+export const SectionSearch = styled.section`
   display: flex;
   gap: 5px;
   flex-direction: column;
   padding-top: 60px;
 `;
-export const MovieTitle = styled.div`
+export const Title = styled.div`
   background-color: #000;
   width: 100%;
   height: 140px;
@@ -27,7 +27,7 @@ export const MovieTitle = styled.div`
   }
 `;
 
-export const ListMovies = styled.div`
+export const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -35,7 +35,7 @@ export const ListMovies = styled.div`
   background-color: #fffbff;
 `;
 
-export const BoxMovie = styled.div`
+export const Box = styled.div`
   background-color: #121212;
   padding: 20px;
   display: flex;
@@ -58,17 +58,12 @@ export const BoxMovie = styled.div`
   }
 
   & button {
-    border: none;
     background-color: #f5c518;
     padding: 6px 8px;
     font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
     transition: 0.4s;
-  }
-
-  & div {
-    padding-top: 20px;
+    margin-top: 20px;
   }
 
   & a {
@@ -77,6 +72,12 @@ export const BoxMovie = styled.div`
 
   & button:hover {
     background-color: #fffbff;
+  }
+
+  @media screen and (max-width: 480px) {
+    & img {
+      width: 250px;
+    }
   }
 `;
 
