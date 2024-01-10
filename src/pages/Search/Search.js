@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 
-import { SectionSearch, Title, List, Box, Main } from "./Search.style";
+import { SectionSearch, Title, List, Main } from "./Search.style";
 
 import { useQuery } from "../../hooks/useQuery";
 
 import { Loading } from "../../GlobalStyle";
 
 import { BiLoaderAlt } from "react-icons/bi";
+import MainCardSkeleton from "../../components/MainCardSkeleton/MainCardSkeleton";
 
 const Search = () => {
   const { listSearch, query, loadingSearch } = useQuery();
@@ -26,20 +27,7 @@ const Search = () => {
           <List>
             {listSearch &&
               listSearch.map((ls) => (
-                <Box key={ls.id}>
-                  <h3>{ls.title}</h3>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w300/${ls.poster_path}`}
-                    alt={ls.title}
-                  />
-                  <button>
-                    {ls.media_type === "movie" ? (
-                      <Link to={`/movie/${ls.id}`}>Saiba Mais</Link>
-                    ) : (
-                      <Link to={`/serie/${ls.id}`}>Saiba Mais</Link>
-                    )}
-                  </button>
-                </Box>
+                <MainCardSkeleton type={ls}/>
               ))}
           </List>
         </SectionSearch>

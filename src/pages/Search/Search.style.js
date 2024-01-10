@@ -35,52 +35,6 @@ export const List = styled.div`
   background-color: #fffbff;
 `;
 
-export const Box = styled.div`
-  background-color: #121212;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  & h3 {
-    font-size: 30px;
-    color: #fffbff;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #fffbff;
-    width: 100%;
-    text-align: center;
-  }
-
-  & img {
-    width: 300px;
-    padding-top: 10px;
-    color: #fffbff;
-  }
-
-  & button {
-    background-color: #f5c518;
-    padding: 6px 8px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 0.4s;
-    margin-top: 20px;
-  }
-
-  & a {
-    color: #121212;
-  }
-
-  & button:hover {
-    background-color: #fffbff;
-  }
-
-  @media screen and (max-width: 480px) {
-    & img {
-      width: 250px;
-    }
-  }
-`;
-
 export const ImgTitleMoviePopular = styled.div`
   padding: 10px;
   border: 10px solid #fff;

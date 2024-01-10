@@ -1,19 +1,12 @@
-import { Link } from "react-router-dom";
-
 import {
-  /* */
   Main,
-  /* */
   SectionMovieSerie,
   MovieSerieTitle,
-  Box,
   ListResponsive,
-  /* */
   SectionPopularMovies,
-  BoxMoviePopular,
   ListMoviesPopular,
   PopularMovieTitle,
-} from "./Home.style";
+} from"./Home.style";
 
 import {Loading} from "../../GlobalStyle"
 
@@ -21,6 +14,8 @@ import { BiLoaderAlt } from 'react-icons/bi';
 
 import { useGetMovies } from "../../hooks/useGetMovies";
 import { useGetSeries } from "../../hooks/useGetSeries";
+import SkeletonAside from "../../components/SkeletonAside/SkeletonAside";
+import MainCardSkeleton from "../../components/MainCardSkeleton/MainCardSkeleton";
 
 const Home = () => {
   const { listMoviesPopular, listMoviesUpcoming, loadingMovie } = useGetMovies();
@@ -36,14 +31,7 @@ const Home = () => {
         <ListResponsive>
           {!loadingMovie && listMoviesUpcoming &&
             listMoviesUpcoming.map((lmu) => (
-              <Box key={lmu.id}>
-                <Link to={`/movie/${lmu.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${lmu.poster_path}`}
-                    alt=""
-                  />
-                </Link>
-              </Box>
+              <SkeletonAside type={lmu}/>
             ))}
         </ListResponsive>
       </SectionMovieSerie>
@@ -55,16 +43,7 @@ const Home = () => {
         <ListMoviesPopular>
           {!loadingMovie && listMoviesPopular &&
             listMoviesPopular.map((lmp) => (
-              <BoxMoviePopular key={lmp.id}>
-                <h3>{lmp.title}</h3>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${lmp.poster_path}`}
-                  alt=""
-                />
-                <button>
-                  <Link to={`/movie/${lmp.id}`}>Saiba Mais</Link>
-                </button>
-              </BoxMoviePopular>
+              <MainCardSkeleton type={lmp}/>
             ))}
         </ListMoviesPopular>
       </SectionPopularMovies>
@@ -76,14 +55,7 @@ const Home = () => {
         <ListResponsive>
           {!loadingSerie && listSeriesPopular &&
             listSeriesPopular.map((lsp) => (
-              <Box key={lsp.id}>
-                <Link to={`/serie/${lsp.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${lsp.poster_path}`}
-                    alt=""
-                  />
-                </Link>
-              </Box>
+              <SkeletonAside type={lsp}/>
             ))}
         </ListResponsive>
       </SectionMovieSerie>
