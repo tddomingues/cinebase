@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { GlobalStyle } from './GlobalStyle';
+import { Theme } from './styles/Theme';
+import { GlobalStyle } from './styles/global';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyle/>
-    <App />
+    <Theme>
+      <Provider store={store}>
+        <App />
+        <GlobalStyle />
+      </Provider>
+    </Theme>
   </React.StrictMode>
 );
 
