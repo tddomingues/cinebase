@@ -65,7 +65,7 @@ export const MainStyle = styled.main`
     > section {
       > .movies {
         display: grid;
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
       }
     }

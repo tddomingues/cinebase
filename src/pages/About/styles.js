@@ -90,4 +90,16 @@ export const SectionStyle = styled.section`
       }
     }
   }
+
+  @media (max-width: 720px) {
+    padding: 1rem;
+
+    flex-direction: column;
+
+    > .info {
+      > .overview {
+        width: 100%;
+      }
+    }
+  }
 `;
