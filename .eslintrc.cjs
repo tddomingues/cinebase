@@ -13,5 +13,7 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['prettier'],
   rules: {
+    "react/prop-types": "off",
+    "no-unused-vars": "off"
   },
 }

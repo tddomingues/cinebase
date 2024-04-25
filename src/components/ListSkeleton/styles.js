@@ -58,4 +58,16 @@ export const MainStyle = styled.main`
       }
     }
   }
+
+  @media (max-width: 720px) {
+    padding: 1rem;
+
+    > section {
+      > .movies {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 1rem;
+      }
+    }
+  }
 `;

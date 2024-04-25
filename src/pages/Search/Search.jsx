@@ -28,7 +28,7 @@ const Search = () => {
   }, [dispatch, page, query]);
 
   if (loading) return <Loading />;
-  if (movies.length === 0) return <Loading />;
+  //if (movies.length === 0) return <Loading />;
 
   return (
     <>

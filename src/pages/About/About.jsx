@@ -65,8 +65,8 @@ const About = () => {
                 <span>{movie.vote_average.toFixed(1)}/10</span>
               </div>
               <div className="genres">
-                {movie.genres.map((genre) => (
-                  <span>{genre.name}</span>
+                {movie.genres.map((genre, i) => (
+                  <span key={i}>{genre.name}</span>
                 ))}
               </div>
               <div className="overview">

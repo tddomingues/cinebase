@@ -76,4 +76,8 @@ export const SectionStyle = styled.section`
       }
     }
   }
+
+  @media (max-width: 720px) {
+    margin: 2rem 1rem;
+  }
 `;

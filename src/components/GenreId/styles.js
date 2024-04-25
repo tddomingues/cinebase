@@ -24,4 +24,12 @@ export const SectionStyle = styled.section`
       }
     }
   }
+
+  @media (max-width: 720px) {
+    margin: 1rem;
+
+    > div {
+      width: 100%;
+    }
+  }
 `;
