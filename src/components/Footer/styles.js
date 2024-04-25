@@ -18,4 +18,8 @@ export const FooterStyles = styled.footer`
       font-size: ${({ theme }) => theme.fontSize.lg};
     }
   }
+
+  @media (max-width: 720px) {
+    padding: 1rem;
+  }
 `;
