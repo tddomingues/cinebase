@@ -26,7 +26,7 @@ const Movies = ({ title, movies, type }) => {
     <SectionStyle>
       <div>
         <h2>{title}</h2>
-        <span onClick={() => navigate(`/movies/${type}`)}>Mostrar Mais</span>
+        <p onClick={() => navigate(`/movies/${type}`)}>Mostrar Mais</p>
       </div>
       <div>
         <div className="arrows">

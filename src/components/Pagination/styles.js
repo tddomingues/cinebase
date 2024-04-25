@@ -18,7 +18,7 @@ export const Container = styled.div`
         border: none;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: 0.125rem;
         background-color: ${({ theme }) => theme.colors.slate950};
         padding: 0.5rem;
@@ -32,6 +32,10 @@ export const Container = styled.div`
 
         > span {
           color: ${({ theme }) => theme.colors.slate50};
+
+          > svg {
+            margin-top: 4px;
+          }
         }
         &:hover {
           background-color: ${({ theme }) => theme.colors.slate800};

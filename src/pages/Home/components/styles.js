@@ -12,9 +12,15 @@ export const SectionStyle = styled.section`
       padding-bottom: 0.5rem;
     }
 
-    > span {
-      font-weight: 400;
+    > p {
+      font-size: ${({ theme }) => theme.fontSize.md};
+      color: ${({ theme }) => theme.colors.slate500};
       cursor: pointer;
+      transition: 0.5s ease;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.slate50};
+      }
     }
   }
 
@@ -35,11 +41,11 @@ export const SectionStyle = styled.section`
         cursor: pointer;
         padding-top: 5px;
         font-size: 2rem;
-        color: ${({ theme }) => theme.colors.slate50};
+        color: ${({ theme }) => theme.colors.slate500};
         transition: 0.5s ease;
 
         &:hover {
-          color: ${({ theme }) => theme.colors.slate600};
+          color: ${({ theme }) => theme.colors.slate50};
         }
       }
     }
