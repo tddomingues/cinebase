@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MainStyle = styled.main`
   padding: 1rem 4rem;
-
   > section {
+    padding-bottom: 1rem;
     > h2 {
       padding: 1rem 0;
     }

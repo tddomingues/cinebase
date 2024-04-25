@@ -8,6 +8,7 @@ import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearch, reset, currentPage } from "../../slices/searchSlice";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const Search = () => {
   const { search } = useLocation();
@@ -39,8 +40,8 @@ const Search = () => {
         page={page}
         currentPage={currentPage}
         query={query}
-        title={query}
       />
+      <Footer />
     </>
   );
 };

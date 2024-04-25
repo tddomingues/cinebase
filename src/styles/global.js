@@ -22,6 +22,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.slate50};
   }
 
+  main {
+    height: 100dvh;
+  }
+
   body,
   input,
   select,

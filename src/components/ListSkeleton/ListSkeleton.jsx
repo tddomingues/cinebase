@@ -42,10 +42,7 @@ const ListSkeleton = ({
   return (
     <MainStyle>
       <section>
-        <h2>
-          {query && "Pesquisa: "}
-          {title}
-        </h2>
+        <h2>{query ? `Pesquisa: ${query}` : title ? title : "Pesquisa"}</h2>
         {movies.length > 0 ? (
           <>
             <div className="movies">
@@ -83,7 +80,8 @@ const ListSkeleton = ({
             />
           </>
         ) : (
-          <p>Não foi encontrado filme(s) com a pesquisa {title}</p>
+          query &&
+          !loading && <p>Não foi encontrado filme(s) com a pesquisa {query}</p>
         )}
       </section>
     </MainStyle>

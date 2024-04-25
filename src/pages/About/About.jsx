@@ -11,6 +11,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { formatTime } from "../../utils/formatTime";
 import { formatDate } from "../../utils/formatDate";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const About = () => {
   const { id } = useParams();
@@ -77,6 +78,7 @@ const About = () => {
           </SectionStyle>
         </main>
       )}
+      <Footer />
     </>
   );
 };
