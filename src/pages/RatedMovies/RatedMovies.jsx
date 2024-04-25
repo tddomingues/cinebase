@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTopRated, reset, currentPage } from "../../slices/topRatedSlice";
 import Loading from "../../components/Loading/Loading";
 
-const RatedMovies = () => {
+const RatedMovies = ({ title }) => {
   const dispatch = useDispatch();
 
   const { movies, loading, page } = useSelector((state) => state.topRatedSlice);
@@ -29,6 +29,7 @@ const RatedMovies = () => {
         loading={loading}
         currentPage={currentPage}
         page={page}
+        title={title}
       />
     </>
   );

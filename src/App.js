@@ -1,9 +1,9 @@
-import { AppRoutes } from "./routes";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <AppRoutes />
+      <Outlet />
     </div>
   );
 }

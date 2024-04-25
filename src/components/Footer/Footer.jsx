@@ -6,10 +6,12 @@ import { DiGithubFull } from "react-icons/di";
 const Footer = () => {
   return (
     <FooterStyles>
-      <span>
-        <Link to="/">
-          <DiGithubFull />
-        </Link>
+      <span
+        onClick={() =>
+          (window.location.href = "https://www.linkedin.com/in/tiago3domingues")
+        }
+      >
+        <DiGithubFull />
       </span>
     </FooterStyles>
   );
