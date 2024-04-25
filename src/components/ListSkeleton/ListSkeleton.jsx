@@ -46,38 +46,45 @@ const ListSkeleton = ({
           {query && "Pesquisa: "}
           {title}
         </h2>
-        <div className="movies">
-          {movies &&
-            movies.map((movie) => (
-              <div key={movie.id} onClick={() => handleDetails(movie.id)}>
-                <div>
-                  <span className="icon-star">
-                    <GoStarFill />
-                  </span>
-                  <span className="vote">{movie.vote_average.toFixed(1)}</span>
+        {movies.length > 0 ? (
+          <>
+            <div className="movies">
+              {movies.map((movie) => (
+                <div key={movie.id} onClick={() => handleDetails(movie.id)}>
+                  <div>
+                    <span className="icon-star">
+                      <GoStarFill />
+                    </span>
+                    <span className="vote">
+                      {movie.vote_average.toFixed(1)}
+                    </span>
+                  </div>
+                  {movie.backdrop_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w400/${movie.backdrop_path}`}
+                      alt={movie.title}
+                    />
+                  ) : (
+                    <img
+                      src={imageDefault}
+                      alt={movie.title}
+                      style={{ width: "100%" }}
+                    />
+                  )}
+                  <h3>{movie.title}</h3>
                 </div>
-                {movie.backdrop_path ? (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w400/${movie.backdrop_path}`}
-                    alt={movie.title}
-                  />
-                ) : (
-                  <img
-                    src={imageDefault}
-                    alt={movie.title}
-                    style={{ width: "100%" }}
-                  />
-                )}
-                <h3>{movie.title}</h3>
-              </div>
-            ))}
-        </div>
-        <Pagination
-          paginate={paginate}
-          totalPages={totalPages}
-          page={page}
-          loading={loading}
-        />
+              ))}
+            </div>
+            <Pagination
+              paginate={paginate}
+              totalPages={totalPages}
+              page={page}
+              loading={loading}
+            />
+          </>
+        ) : (
+          <p>Não foi encontrado filme(s) com a pesquisa {title}</p>
+        )}
       </section>
     </MainStyle>
   );

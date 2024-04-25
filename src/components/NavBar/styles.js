@@ -58,7 +58,7 @@ export const ContainerNav = styled.nav`
 
   > .input-search-mobile {
     display: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     position: relative;
     flex-grow: 1;
 
@@ -86,11 +86,15 @@ export const ContainerNav = styled.nav`
   }
 
   @media (max-width: 720px) {
-    padding: 1rem 1rem;
-    flex-direction: row;
-    flex-wrap: wrap;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1;
 
-    > div {
+    > div:nth-child(2) {
+      width: 100%;
+      justify-content: end;
+
       > .input-search-desktop {
         display: none;
       }
@@ -98,7 +102,7 @@ export const ContainerNav = styled.nav`
 
     > .input-search-mobile {
       display: flex;
-
+      grid-column: 1/3;
       > form {
         width: 100%;
       }

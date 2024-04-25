@@ -8,6 +8,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import GenreId from "../../components/GenreId/GenreId";
 import Movies from "./components/Movies";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const Home = () => {
         <Movies title="Mais Avaliados" movies={topRatedMovies} type="rated" />
         <Movies title="Mais Populares" movies={popularMovies} type="popular" />
       </main>
+      <Footer />
     </>
   );
 };
