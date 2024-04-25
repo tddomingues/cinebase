@@ -41,7 +41,6 @@ const Search = () => {
         currentPage={currentPage}
         query={query}
       />
-      <Footer />
     </>
   );
 };
