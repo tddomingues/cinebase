@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
 //router
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 //styles
-import { SectionStyle } from './styles'
+import { SectionStyle } from "./styles";
 
 const GenreId = () => {
-  
   return (
     <SectionStyle>
       <div>
@@ -22,7 +21,7 @@ const GenreId = () => {
         <Link to="/genre/romance">Romance</Link>
       </div>
     </SectionStyle>
-  )
-}
+  );
+};
 
-export default GenreId
+export default GenreId;

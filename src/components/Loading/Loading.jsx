@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import { LoadingStyles } from './styles'
+import { LoadingStyles } from "./styles";
 import { AiOutlineLoading } from "react-icons/ai";
 
 const Loading = () => {
   return (
-    <LoadingStyles><AiOutlineLoading /></LoadingStyles>
-  )
-}
+    <LoadingStyles>
+      <AiOutlineLoading />
+    </LoadingStyles>
+  );
+};
 
-export default Loading
+export default Loading;

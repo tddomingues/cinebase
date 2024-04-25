@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const SectionStyle = styled.section`
-
   margin: 2rem 4rem;
   background-color: ${({ theme }) => theme.colors.slate900};
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   > div {
     padding: 1rem;
     display: grid;
@@ -13,7 +12,6 @@ export const SectionStyle = styled.section`
     justify-items: center;
     width: 50%;
     margin: auto;
-    
 
     > a {
       color: ${({ theme }) => theme.colors.slate300};
@@ -26,5 +24,4 @@ export const SectionStyle = styled.section`
       }
     }
   }
-
-`
+`;

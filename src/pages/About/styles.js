@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const SectionStyle = styled.section`
   position: relative;
@@ -9,19 +9,23 @@ export const SectionStyle = styled.section`
 
   > .background-image {
     position: absolute;
-    background: rgb(2,6,23);
-    background: linear-gradient(360deg, rgba(2,6,23,1) 0%, rgba(2,6,23,0.31416316526610644) 100%);
+    background: rgb(2, 6, 23);
+    background: linear-gradient(
+      360deg,
+      rgba(2, 6, 23, 1) 0%,
+      rgba(2, 6, 23, 0.31416316526610644) 100%
+    );
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
-    > img { 
+    > img {
       position: relative;
       width: 100%;
       height: 100%;
-      z-index: -1;     
-      object-fit: cover;   
+      z-index: -1;
+      object-fit: cover;
     }
   }
 
@@ -33,12 +37,11 @@ export const SectionStyle = styled.section`
     }
   }
 
-
   > .info {
     display: flex;
     flex-direction: column;
     z-index: 1;
-    
+
     > h2 {
       padding-bottom: 0.125rem;
       font-size: ${({ theme }) => theme.fontSize["4xl"]};
@@ -56,16 +59,16 @@ export const SectionStyle = styled.section`
       align-items: center;
       gap: 0.25rem;
 
-      > .icon-star {        
-          color: ${({ theme }) => theme.colors.yellow};
-          padding-top: 3px;
-        }
+      > .icon-star {
+        color: ${({ theme }) => theme.colors.yellow};
+        padding-top: 3px;
       }
+    }
 
     > .genres {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;     
+      gap: 1rem;
       padding-bottom: 1rem;
 
       > span {
@@ -85,9 +88,6 @@ export const SectionStyle = styled.section`
       > p {
         line-height: 1.3;
       }
-      
     }
-
   }
-
-`
+`;

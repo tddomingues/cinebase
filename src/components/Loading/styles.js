@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const LoadingStyles = styled.div`
   position: absolute;
@@ -9,7 +9,7 @@ export const LoadingStyles = styled.div`
   width: 100%;
   height: 100%;
   font-size: 4rem;
-  color: ${({ theme }) => theme.colors.slate50};  
+  color: ${({ theme }) => theme.colors.slate50};
   display: grid;
   place-items: center;
   animation: loading 1s linear infinite;

@@ -1,37 +1,37 @@
 export const genres = (type) => {
-  let genre
+  let genre;
 
   switch (type) {
     case 28:
-      genre = "Ação"
+      genre = "Ação";
       break;
     case 12:
-      genre = "Aventura"
+      genre = "Aventura";
       break;
     case 16:
-      genre = "Animação"
+      genre = "Animação";
       break;
     case 35:
-      genre = "Comédia"
+      genre = "Comédia";
       break;
     case 18:
-      genre = "Drama"
+      genre = "Drama";
       break;
     case 14:
-      genre = "Fantasia"
+      genre = "Fantasia";
       break;
     case 27:
-      genre = "Horror"
+      genre = "Horror";
       break;
     case 9648:
-      genre = "Mistério"
+      genre = "Mistério";
       break;
     case 10749:
-      genre = "Romance"
+      genre = "Romance";
       break;
     default:
-      genre = "Title"
+      genre = "Title";
   }
 
-  return genre
-}
+  return genre;
+};

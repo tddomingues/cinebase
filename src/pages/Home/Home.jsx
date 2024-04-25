@@ -10,28 +10,31 @@ import Movies from "./components/Movies";
 import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const { movies: popularMovies, loading: popularLoading } = useSelector(state => state.popularSlice)
-  const { movies: topRatedMovies, loading: topRatedLoading } = useSelector(state => state.topRatedSlice)
+  const { movies: popularMovies, loading: popularLoading } = useSelector(
+    (state) => state.popularSlice,
+  );
+  const { movies: topRatedMovies, loading: topRatedLoading } = useSelector(
+    (state) => state.topRatedSlice,
+  );
 
   useEffect(() => {
-    dispatch(getPopular({page: 1}))
-    dispatch(getTopRated({page: 1}))
-  }, [dispatch])
+    dispatch(getPopular({ page: 1 }));
+    dispatch(getTopRated({ page: 1 }));
+  }, [dispatch]);
 
-  if(popularLoading) return <Loading/>
+  if (popularLoading) return <Loading />;
 
-  if(topRatedLoading) return <Loading/>
-  
+  if (topRatedLoading) return <Loading />;
+
   return (
     <>
       <NavBar />
       <GenreId />
       <main>
-        <Movies title="Mais Avaliados" movies={topRatedMovies} type="rated"/>
-        <Movies title="Mais Populares" movies={popularMovies} type="popular"/>
+        <Movies title="Mais Avaliados" movies={topRatedMovies} type="rated" />
+        <Movies title="Mais Populares" movies={popularMovies} type="popular" />
       </main>
     </>
   );

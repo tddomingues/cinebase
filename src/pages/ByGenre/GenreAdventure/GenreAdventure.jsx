@@ -1,10 +1,8 @@
-import React from 'react'
-import ByGenre from '../ByGenre'
+import React from "react";
+import ByGenre from "../ByGenre";
 
-const GenreAdventure = ({type}) => {
-  return (
-    <ByGenre type={type}/>
-  )
-}
+const GenreAdventure = ({ type }) => {
+  return <ByGenre type={type} />;
+};
 
-export default GenreAdventure
+export default GenreAdventure;

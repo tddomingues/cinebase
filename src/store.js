@@ -1,11 +1,11 @@
-import {configureStore} from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit";
 
-import byGenreSlice from "./slices/byGenreSlice"
-import popularSlice from "./slices/popularSlice"
-import topRatedSlice from "./slices/topRatedSlice"
-import byDetails from "./slices/byDetails"
-import nowPlayingSlice from "./slices/nowPlayingSlice"
-import searchSlice from "./slices/searchSlice"
+import byGenreSlice from "./slices/byGenreSlice";
+import popularSlice from "./slices/popularSlice";
+import topRatedSlice from "./slices/topRatedSlice";
+import byDetails from "./slices/byDetails";
+import nowPlayingSlice from "./slices/nowPlayingSlice";
+import searchSlice from "./slices/searchSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,8 +14,8 @@ const store = configureStore({
     topRatedSlice,
     byDetails,
     nowPlayingSlice,
-    searchSlice
-  }
-})
+    searchSlice,
+  },
+});
 
-export default store
+export default store;

@@ -6,15 +6,15 @@ import { LuSearch } from "react-icons/lu";
 import { useState } from "react";
 
 const NavBar = () => {
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    navigate(`/movies?query=${search}`)
-  }
+    navigate(`/movies?query=${search}`);
+  };
 
   return (
     <ContainerNav>
@@ -33,15 +33,34 @@ const NavBar = () => {
             <Link to="/movies/nowplaying">No Cinema</Link>
           </li>
         </ul>
-        <div>
+        <div className="input-search-desktop">
           <form onSubmit={handleSubmit}>
             <label>
-              <span><LuSearch /></span>
-              <input type="text" placeholder="Qual filme deseja procurar ?" onChange={(e) => setSearch(e.target.value)} />
+              <span>
+                <LuSearch />
+              </span>
+              <input
+                type="text"
+                placeholder="Qual filme deseja procurar ?"
+                onChange={(e) => setSearch(e.target.value)}
+              />
             </label>
           </form>
-
         </div>
+      </div>
+      <div className="input-search-mobile">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <span>
+              <LuSearch />
+            </span>
+            <input
+              type="text"
+              placeholder="Qual filme deseja procurar ?"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </label>
+        </form>
       </div>
     </ContainerNav>
   );

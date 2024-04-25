@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import { Container } from './styles'
+import { Container } from "./styles";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const Pagination = ({ paginate, totalPages, page, loading }) => {
-
   // const pageNumbers = []
   // let i = 1
 
@@ -27,40 +26,54 @@ const Pagination = ({ paginate, totalPages, page, loading }) => {
       <nav>
         <ul>
           {loading ? (
-            <li >
+            <li>
               <button>
-                <span><MdOutlineNavigateBefore /></span>
+                <span>
+                  <MdOutlineNavigateBefore />
+                </span>
                 <span>Loading</span>
               </button>
             </li>
           ) : (
             <li>
-              <button onClick={() => paginate(page - 1)} disabled={page <= 1 ? true : false}>
-                <span><MdOutlineNavigateBefore /></span>
+              <button
+                onClick={() => paginate(page - 1)}
+                disabled={page <= 1 ? true : false}
+              >
+                <span>
+                  <MdOutlineNavigateBefore />
+                </span>
                 <span>Anterior</span>
               </button>
             </li>
           )}
 
           {loading ? (
-            <li >
+            <li>
               <button>
                 <span>Loading</span>
-                <span><MdOutlineNavigateBefore /></span>
+                <span>
+                  <MdOutlineNavigateBefore />
+                </span>
               </button>
             </li>
           ) : (
             <li>
-              <button onClick={() => paginate(page + 1)} disabled={page >= totalPages ? true : false}>
+              <button
+                onClick={() => paginate(page + 1)}
+                disabled={page >= totalPages ? true : false}
+              >
                 <span>Próximo</span>
-                <span><MdOutlineNavigateNext /></span>
+                <span>
+                  <MdOutlineNavigateNext />
+                </span>
               </button>
             </li>
           )}
         </ul>
       </nav>
     </Container>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

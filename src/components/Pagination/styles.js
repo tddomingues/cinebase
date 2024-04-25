@@ -8,18 +8,18 @@ export const Container = styled.div`
   padding: 1rem;
 
   ul {
-    display: flex;  
+    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
 
-    > li {  
+    > li {
       button {
         border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: .125rem;
+        gap: 0.125rem;
         background-color: ${({ theme }) => theme.colors.slate950};
         padding: 0.5rem;
         border-radius: 0.5rem;
@@ -31,14 +31,12 @@ export const Container = styled.div`
         }
 
         > span {
-          color: ${({ theme }) => theme.colors.slate50};        
+          color: ${({ theme }) => theme.colors.slate50};
         }
         &:hover {
-        background-color: ${({ theme }) => theme.colors.slate800};       
+          background-color: ${({ theme }) => theme.colors.slate800};
         }
-        
       }
     }
   }
-
-` 
+`;

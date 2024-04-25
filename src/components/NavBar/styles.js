@@ -6,7 +6,7 @@ export const ContainerNav = styled.nav`
   align-items: center;
   padding: 1rem 4rem;
   background-color: ${({ theme }) => theme.colors.slate950};
-  
+
   > a > h1 {
     color: ${({ theme }) => theme.colors.slate50};
     padding: 0px 10px 0px 10px;
@@ -18,9 +18,9 @@ export const ContainerNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;  
+    gap: 2rem;
     width: 50%;
-    
+
     > ul {
       display: flex;
       align-items: center;
@@ -31,34 +31,64 @@ export const ContainerNav = styled.nav`
       }
     }
 
-    > div {
+    > .input-search-desktop {
       position: relative;
       flex-grow: 1;
 
       form {
         label {
           > span {
-        position: absolute;
-        left: 5px;
-        top: 7px;
-        font-size: 1.3rem;
-        color: ${({ theme }) => theme.colors.slate950};
-      }
-      > input {
-        width: 100%;
-        padding: 0.5rem 1rem 0.5rem 2.2rem;
-        border: none;
-        border-radius: 1rem;
-        background-color: ${({ theme }) => theme.colors.slate50};
-        color: ${({ theme }) => theme.colors.slate950};
-        cursor: pointer;
-        font-weight: 300;
-      }
+            position: absolute;
+            left: 5px;
+            top: 7px;
+            font-size: 1.3rem;
+            color: ${({ theme }) => theme.colors.slate950};
+          }
+          > input {
+            width: 100%;
+            padding: 0.5rem 1rem 0.5rem 2.2rem;
+            border: none;
+            border-radius: 1rem;
+            background-color: ${({ theme }) => theme.colors.slate50};
+            color: ${({ theme }) => theme.colors.slate950};
+            cursor: pointer;
+            font-weight: 300;
+          }
         }
       }
-
-      
     }
   }
 
+  > .input-search-mobile {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    padding: 1rem 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > a {
+      flex: 1;
+    }
+
+    > :nth-child(2) {
+      flex: 1;
+      order: 0;
+    }
+
+    > :nth-child(3) {
+      flex: 1;
+      order: 1;
+      padding: 1rem 1rem 0 1rem;
+    }
+
+    .input-search-desktop {
+      display: none;
+    }
+
+    .input-search-mobile {
+      display: flex;
+    }
+  }
 `;

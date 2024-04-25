@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const SectionStyle = styled.section`
   margin: 2rem 4rem;
 
-  > div:nth-child(1) {   
+  > div:nth-child(1) {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     > h2 {
       padding-bottom: 0.5rem;
-    }  
+    }
 
     > span {
       font-weight: 400;
@@ -18,11 +18,11 @@ export const SectionStyle = styled.section`
     }
   }
 
-  > div:nth-child(2) {  
-    background-color: ${({ theme }) => theme.colors.slate900};  
+  > div:nth-child(2) {
+    background-color: ${({ theme }) => theme.colors.slate900};
     display: flex;
     flex-direction: column;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 
     > .arrows {
       align-self: flex-end;
@@ -39,7 +39,7 @@ export const SectionStyle = styled.section`
         transition: 0.5s ease;
 
         &:hover {
-          color: ${({ theme }) => theme.colors.slate600};  
+          color: ${({ theme }) => theme.colors.slate600};
         }
       }
     }
@@ -54,15 +54,15 @@ export const SectionStyle = styled.section`
       scrollbar-width: none;
 
       > div {
-        border-radius: .5rem;
-        background-color: ${({ theme }) => theme.colors.slate950};  
+        border-radius: 0.5rem;
+        background-color: ${({ theme }) => theme.colors.slate950};
         padding: 0.5rem;
         cursor: pointer;
-           
+
         > img {
           filter: brightness(0.8);
           transition: 0.5s ease;
-          border-radius: .125rem;
+          border-radius: 0.125rem;
           &:hover {
             filter: brightness(1);
           }
@@ -76,4 +76,4 @@ export const SectionStyle = styled.section`
       }
     }
   }
-`
+`;

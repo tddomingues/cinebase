@@ -2,17 +2,15 @@ import styled from "styled-components";
 
 export const MainStyle = styled.main`
   padding: 1rem 4rem;
-  
-  
-  > section {
 
+  > section {
     > h2 {
       padding: 1rem 0;
     }
 
     > .movies {
       display: grid;
-      grid-template-columns: repeat(3, auto);   
+      grid-template-columns: repeat(3, auto);
       gap: 1rem;
 
       > div {
@@ -20,7 +18,7 @@ export const MainStyle = styled.main`
         flex-direction: column;
         justify-content: space-between;
         padding: 1rem;
-        background-color: ${({ theme }) => theme.colors.slate900};       
+        background-color: ${({ theme }) => theme.colors.slate900};
         cursor: pointer;
         position: relative;
 
@@ -31,19 +29,17 @@ export const MainStyle = styled.main`
           border-radius: 0.5rem;
           z-index: 10;
           background-color: ${({ theme }) => theme.colors.slate950};
-          padding: .25rem .5rem;
+          padding: 0.25rem 0.5rem;
           opacity: 10;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 0.25rem;
 
-
-          > .icon-star {        
+          > .icon-star {
             color: ${({ theme }) => theme.colors.yellow};
             padding-top: 2px;
-        }
-          
+          }
         }
 
         > h3 {
@@ -60,6 +56,6 @@ export const MainStyle = styled.main`
           }
         }
       }
-    }  
+    }
   }
-`
+`;

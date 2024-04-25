@@ -11,7 +11,7 @@ export const Container = styled.footer`
   margin-top: 10px;
 
   & span {
-    color: #F5C518;
+    color: #f5c518;
     font-weight: bold;
   }
 

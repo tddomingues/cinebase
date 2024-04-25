@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home/Home"
-import ByGenre from "./pages/ByGenre/ByGenre"
-import About from "./pages/About/About"
-import Popular from "./pages/Popular/Popular"
-import NowPlaying from "./pages/NowPlaying/NowPlaying"
-import Search from "./pages/Search/Search"
-import RatedMovies from "./pages/RatedMovies/RatedMovies"
+import Home from "./pages/Home/Home";
+import ByGenre from "./pages/ByGenre/ByGenre";
+import About from "./pages/About/About";
+import Popular from "./pages/Popular/Popular";
+import NowPlaying from "./pages/NowPlaying/NowPlaying";
+import Search from "./pages/Search/Search";
+import RatedMovies from "./pages/RatedMovies/RatedMovies";
 
 const routes = () => {
   return (
@@ -23,17 +23,21 @@ const routes = () => {
         <Route path="/genre/crime" element={<ByGenre type={80} />} />
         <Route path="/genre/fantasy" element={<ByGenre type={14} />} />
         <Route path="/genre/romance" element={<ByGenre type={10749} />} />
-      
-        <Route path="/movie/:id" element={<About/>}/>
-        <Route path="/movies/popular" element={<Popular title="Filmes Populares"/>}/>
-        <Route path="/movies/nowplaying" element={<NowPlaying title="No Cinema"/>}/>
-        <Route path="/movies/rated" element={<RatedMovies title="Em Alta"/>}/>
-        <Route path="/movies" element={<Search/>}/>
+
+        <Route path="/movie/:id" element={<About />} />
+        <Route
+          path="/movies/popular"
+          element={<Popular title="Filmes Populares" />}
+        />
+        <Route
+          path="/movies/nowplaying"
+          element={<NowPlaying title="No Cinema" />}
+        />
+        <Route path="/movies/rated" element={<RatedMovies title="Em Alta" />} />
+        <Route path="/movies" element={<Search />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
+};
 
-
-}
-
-export const AppRoutes = routes
+export const AppRoutes = routes;
