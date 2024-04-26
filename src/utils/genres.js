@@ -11,6 +11,9 @@ export const genres = (type) => {
     case 16:
       genre = "Animação";
       break;
+    case 80:
+      genre = "Crime";
+      break;
     case 35:
       genre = "Comédia";
       break;

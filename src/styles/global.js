@@ -32,6 +32,27 @@ export const GlobalStyle = createGlobalStyle`
     flex: 1;
   }
 
+  .error {
+    margin: 1rem 4rem;
+    
+    > p {
+      margin-bottom: 1rem;
+    }
+
+    > button {
+      border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.125rem;
+        background-color: ${({ theme }) => theme.colors.slate50};
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.5s ease;    
+    }
+  }
+
   body,
   input,
   select,

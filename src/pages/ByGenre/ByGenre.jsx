@@ -18,7 +18,7 @@ const ByGenre = ({ type }) => {
 
   const dispatch = useDispatch();
 
-  const { movies, page, loading, totalPages } = useSelector(
+  const { movies, page, loading, totalPages, error } = useSelector(
     (state) => state.byGenreSlice,
   );
 
@@ -43,6 +43,7 @@ const ByGenre = ({ type }) => {
           currentPage={currentPage}
           totalPages={totalPages}
           loading={loading}
+          error={error}
         />
       </div>
       <Footer />

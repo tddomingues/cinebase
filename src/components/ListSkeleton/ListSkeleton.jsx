@@ -22,6 +22,7 @@ const ListSkeleton = ({
   loading,
   page,
   query,
+  error,
 }) => {
   const navigate = useNavigate();
 
@@ -38,6 +39,20 @@ const ListSkeleton = ({
   const handleDetails = (id) => {
     navigate(`/movie/${id}`);
   };
+
+  const handleRefresh = () => {
+    window.location.reload(true);
+  };
+
+  if (error) {
+    return (
+      <div className="error">
+        <p>{error.message}</p>
+        <button onClick={handleRefresh}>Carregar</button>
+      </div>
+    );
+  }
+  <p></p>;
 
   return (
     <MainStyle>

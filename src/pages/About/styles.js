@@ -98,7 +98,6 @@ export const SectionStyle = styled.section`
 
     > .info {
       align-self: start;
-      padding: 0rem 2rem;
       > .overview {
         width: 100%;
       }

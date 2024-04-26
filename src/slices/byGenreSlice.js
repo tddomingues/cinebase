@@ -17,7 +17,11 @@ export const getByGenre = createAsyncThunk(
   async ({ page, type }, thunkAPI) => {
     const url = `${url_base}/discover/movie?api_key=${API_KEY}&with_genres=${type}&page=${page}&language=pt-BR`;
 
-    const res = apiService(url);
+    const res = await apiService(url);
+
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
 
     return res;
   },
@@ -49,7 +53,8 @@ export const byGenreSlice = createSlice({
         state.totalPages = action.payload.total_pages;
       })
       .addCase(getByGenre.rejected, (state, action) => {
-        state.error = "Erro!";
+        console.log(action.payload);
+        state.error = action.payload;
         state.movies = [];
         state.loading = false;
       });
