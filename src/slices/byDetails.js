@@ -7,7 +7,8 @@ const url_base = "https://api.themoviedb.org/3";
 const initialState = {
   loading: false,
   error: null,
-  movie: {},
+  details: {},
+  credits: [],
 };
 
 export const getByDetails = createAsyncThunk(
@@ -21,6 +22,19 @@ export const getByDetails = createAsyncThunk(
   },
 );
 
+export const getCredits = createAsyncThunk(
+  "movie/getCredits",
+  async (id, thunkAPI) => {
+    const url = `${url_base}/movie/${id}/credits?api_key=${API_KEY}&language=pt-BR`;
+
+    const res = await apiService(url);
+
+    console.log(res);
+
+    return res;
+  },
+);
+
 export const byDetails = createSlice({
   name: "byDetails",
   initialState,
@@ -29,7 +43,8 @@ export const byDetails = createSlice({
       state.loading = false;
       state.error = null;
       state.page = 1;
-      state.movie = {};
+      state.details = {};
+      state.credits = [];
     },
     currentPage: (state, action) => {
       state.page = action.payload;
@@ -43,11 +58,24 @@ export const byDetails = createSlice({
       })
       .addCase(getByDetails.fulfilled, (state, action) => {
         state.loading = false;
-        state.movie = action.payload;
+        state.details = action.payload;
       })
       .addCase(getByDetails.rejected, (state, action) => {
         state.error = "Erro!";
-        state.movie = {};
+        state.details = {};
+        state.loading = false;
+      })
+      .addCase(getCredits.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getCredits.fulfilled, (state, action) => {
+        state.loading = false;
+        state.credits = action.payload.cast;
+      })
+      .addCase(getCredits.rejected, (state, action) => {
+        state.error = "Erro!";
+        state.credits = [];
         state.loading = false;
       });
   },

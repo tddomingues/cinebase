@@ -1,60 +1,108 @@
-import React from "react";
+import React, { useRef } from "react";
 
-import { SectionStyle } from "../styles";
+import { useNavigate } from "react-router-dom";
+
+import { DetailsStyle, CreditsStyle } from "./styles";
 import imageDefault from "../../../assets/image-default.png";
+import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { GoStarFill } from "react-icons/go";
 
 import { formatTime } from "../../../utils/formatTime";
 import { formatDate } from "../../../utils/formatDate";
 
-const DetailsSkeleton = ({ movies, movie }) => {
+const DetailsSkeleton = ({ detailsLength, details, credits }) => {
+  const navigate = useNavigate();
+
+  const carousel = useRef();
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  };
+
+  const handlePrevious = (e) => {
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  };
+
   return (
     <>
-      {movies !== 0 && (
+      {detailsLength !== 0 && (
         <main>
-          <SectionStyle>
+          <DetailsStyle>
             <div className="background-image">
-              {movie.backdrop_path ? (
+              {details.backdrop_path ? (
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                  alt={movie.title}
+                  src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
+                  alt={details.title}
                 />
               ) : null}
             </div>
             <div className="background-poster">
               <img
                 src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                  details.poster_path
+                    ? `https://image.tmdb.org/t/p/w300/${details.poster_path}`
                     : imageDefault
                 }
-                alt={movie.title}
+                alt={details.title}
               />
             </div>
             <div className="info">
-              <h2>{movie.title}</h2>
+              <h2>{details.title}</h2>
               <div className="date-time">
-                <span>{formatTime(movie.runtime)}</span>
+                <span>{formatTime(details.runtime)}</span>
                 <span>-</span>
-                <span>{formatDate(movie.release_date)}</span>
+                <span>{formatDate(details.release_date)}</span>
               </div>
               <div className="vote">
                 <span className="icon-star">
                   <GoStarFill />
                 </span>
-                <span>{movie.vote_average.toFixed(1)}/10</span>
+                <span>{details.vote_average.toFixed(1)}/10</span>
               </div>
               <div className="genres">
-                {movie.genres.map((genre, i) => (
+                {details.genres.map((genre, i) => (
                   <span key={i}>{genre.name}</span>
                 ))}
               </div>
               <div className="overview">
                 <h4>Sinopse</h4>
-                <p>{movie.overview || "..."}</p>
+                <p>{details.overview || "..."}</p>
               </div>
             </div>
-          </SectionStyle>
+          </DetailsStyle>
+          <CreditsStyle>
+            <div>
+              <h2>Atores</h2>
+            </div>
+            <div>
+              <div className="arrows">
+                <span onClick={handlePrevious}>
+                  <MdOutlineNavigateBefore />
+                </span>
+                <span onClick={handleNext}>
+                  <MdOutlineNavigateNext />
+                </span>
+              </div>
+              <div ref={carousel} className="carousel">
+                {credits &&
+                  credits.map((credit) => (
+                    <div key={credit.id}>
+                      <img
+                        src={
+                          credit.profile_path
+                            ? `https://image.tmdb.org/t/p/w185/${credit.profile_path}`
+                            : imageDefault
+                        }
+                        alt={credit.title}
+                        style={{ width: "100px" }}
+                      />
+                      <h3>{credit.name}</h3>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </CreditsStyle>
         </main>
       )}
     </>
