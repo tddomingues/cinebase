@@ -29,18 +29,20 @@ const Search = () => {
   }, [dispatch, page, query]);
 
   if (loading) return <Loading />;
-  //if (movies.length === 0) return <Loading />;
 
   return (
     <>
-      <NavBar />
-      <ListSkeleton
-        movies={movies}
-        loading={loading}
-        page={page}
-        currentPage={currentPage}
-        query={query}
-      />
+      <div className="content">
+        <NavBar />
+        <ListSkeleton
+          movies={movies}
+          loading={loading}
+          page={page}
+          currentPage={currentPage}
+          query={query}
+        />
+      </div>
+      <Footer />
     </>
   );
 };

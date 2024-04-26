@@ -31,12 +31,18 @@ const Home = () => {
 
   return (
     <>
-      <NavBar />
-      <GenreId />
-      <main>
-        <Movies title="Mais Avaliados" movies={topRatedMovies} type="rated" />
-        <Movies title="Mais Populares" movies={popularMovies} type="popular" />
-      </main>
+      <div className="content">
+        <NavBar />
+        <GenreId />
+        <main>
+          <Movies title="Mais Avaliados" movies={topRatedMovies} type="rated" />
+          <Movies
+            title="Mais Populares"
+            movies={popularMovies}
+            type="popular"
+          />
+        </main>
+      </div>
       <Footer />
     </>
   );

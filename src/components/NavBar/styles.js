@@ -24,7 +24,7 @@ export const ContainerNav = styled.nav`
       gap: 1rem;
 
       > li {
-        font-weight: 400;
+        font-weight: 500;
       }
     }
 

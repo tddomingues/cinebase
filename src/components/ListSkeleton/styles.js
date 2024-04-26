@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const MainStyle = styled.main`
   padding: 1rem 4rem;
   > section {
-    padding-bottom: 1rem;
     > h2 {
       padding: 1rem 0;
+      font-weight: 400;
     }
 
     > .movies {
@@ -44,6 +44,7 @@ export const MainStyle = styled.main`
 
         > h3 {
           padding-top: 0.5rem;
+          font-weight: 400;
         }
 
         > img {

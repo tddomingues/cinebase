@@ -7,6 +7,7 @@ import { currentPage, getByGenre, reset } from "../../slices/byGenreSlice";
 //components
 import NavBar from "../../components/NavBar/NavBar";
 import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
+import Footer from "../../components/Footer/Footer";
 
 //utils
 import { genres } from "../../utils/genres";
@@ -33,15 +34,18 @@ const ByGenre = ({ type }) => {
 
   return (
     <>
-      <NavBar />
-      <ListSkeleton
-        movies={movies}
-        title={title}
-        page={page}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        loading={loading}
-      />
+      <div className="content">
+        <NavBar />
+        <ListSkeleton
+          movies={movies}
+          title={title}
+          page={page}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          loading={loading}
+        />
+      </div>
+      <Footer />
     </>
   );
 };

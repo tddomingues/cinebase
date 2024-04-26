@@ -10,6 +10,8 @@ export const SectionStyle = styled.section`
 
     > h2 {
       padding-bottom: 0.5rem;
+      /* font-size: ${({ theme }) => theme.fontSize.lg}; */
+      font-weight: 400;
     }
 
     > p {
@@ -77,7 +79,8 @@ export const SectionStyle = styled.section`
         > h3 {
           text-align: center;
           padding-top: 0.5rem;
-          font-weight: 500;
+          font-weight: 400;
+          font-size: ${({ theme }) => theme.fontSize.base};
         }
       }
     }

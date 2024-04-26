@@ -6,6 +6,7 @@ import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { getPopular, currentPage } from "../../slices/popularSlice";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const Popular = ({ title }) => {
   const dispatch = useDispatch();
@@ -22,14 +23,17 @@ const Popular = ({ title }) => {
 
   return (
     <>
-      <NavBar />
-      <ListSkeleton
-        movies={movies}
-        currentPage={currentPage}
-        title={title}
-        page={page}
-        loading={loading}
-      />
+      <div className="content">
+        <NavBar />
+        <ListSkeleton
+          movies={movies}
+          currentPage={currentPage}
+          title={title}
+          page={page}
+          loading={loading}
+        />
+      </div>
+      <Footer />
     </>
   );
 };

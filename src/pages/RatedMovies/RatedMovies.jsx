@@ -4,6 +4,7 @@ import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopRated, reset, currentPage } from "../../slices/topRatedSlice";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const RatedMovies = ({ title }) => {
   const dispatch = useDispatch();
@@ -23,14 +24,17 @@ const RatedMovies = ({ title }) => {
 
   return (
     <>
-      <NavBar />
-      <ListSkeleton
-        movies={movies}
-        loading={loading}
-        currentPage={currentPage}
-        page={page}
-        title={title}
-      />
+      <div className="content">
+        <NavBar />
+        <ListSkeleton
+          movies={movies}
+          loading={loading}
+          currentPage={currentPage}
+          page={page}
+          title={title}
+        />
+      </div>
+      <Footer />
     </>
   );
 };

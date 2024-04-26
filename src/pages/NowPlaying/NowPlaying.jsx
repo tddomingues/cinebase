@@ -6,6 +6,7 @@ import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { getNowPlaying, currentPage } from "../../slices/nowPlayingSlice";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../components/Footer/Footer";
 
 const NowPlaying = ({ title }) => {
   const dispatch = useDispatch();
@@ -24,13 +25,16 @@ const NowPlaying = ({ title }) => {
 
   return (
     <>
-      <NavBar />
-      <ListSkeleton
-        movies={movies}
-        currentPage={currentPage}
-        title={title}
-        page={page}
-      />
+      <div className="content">
+        <NavBar />
+        <ListSkeleton
+          movies={movies}
+          currentPage={currentPage}
+          title={title}
+          page={page}
+        />
+      </div>
+      <Footer />
     </>
   );
 };

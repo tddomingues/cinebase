@@ -22,8 +22,14 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.slate50};
   }
 
-  main {
-    height: 100dvh;
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  .content { 
+    flex: 1;
   }
 
   body,
