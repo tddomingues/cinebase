@@ -1,4 +1,5 @@
 import { SectionStyle } from "./styles";
+import imageDefault from "../../assets/image-default.png";
 import { GoStarFill } from "react-icons/go";
 
 import React, { useEffect } from "react";
@@ -42,14 +43,20 @@ const About = () => {
           <main>
             <SectionStyle>
               <div className="background-image">
-                <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                  alt={movie.title}
-                />
+                {movie.backdrop_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                    alt={movie.title}
+                  />
+                ) : null}
               </div>
               <div className="background-poster">
                 <img
-                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                      : imageDefault
+                  }
                   alt={movie.title}
                 />
               </div>
@@ -73,7 +80,7 @@ const About = () => {
                 </div>
                 <div className="overview">
                   <h4>Sinopse</h4>
-                  <p>{movie.overview}</p>
+                  <p>{movie.overview || "..."}</p>
                 </div>
               </div>
             </SectionStyle>

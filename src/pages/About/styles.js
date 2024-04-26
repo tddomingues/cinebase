@@ -97,6 +97,8 @@ export const SectionStyle = styled.section`
     flex-direction: column;
 
     > .info {
+      align-self: start;
+      padding: 0rem 2rem;
       > .overview {
         width: 100%;
       }
