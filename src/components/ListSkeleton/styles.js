@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const MainStyle = styled.main`
   padding: 1rem 4rem;
   > section {
-    > h2 {
-      padding: 1rem 0;
-      font-weight: 400;
+    > div:nth-child(1) {
+      padding-bottom: 0.125rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.slate400};
+
+      > h2 {
+        font-weight: 400;
+      }
     }
 
     > .movies {

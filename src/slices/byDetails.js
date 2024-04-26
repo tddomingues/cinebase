@@ -9,6 +9,7 @@ const initialState = {
   error: null,
   details: {},
   credits: [],
+  video: {},
 };
 
 export const getByDetails = createAsyncThunk(
@@ -26,6 +27,17 @@ export const getCredits = createAsyncThunk(
   "movie/getCredits",
   async (id, thunkAPI) => {
     const url = `${url_base}/movie/${id}/credits?api_key=${API_KEY}&language=pt-BR`;
+
+    const res = await apiService(url);
+
+    return res;
+  },
+);
+
+export const getMovie = createAsyncThunk(
+  "movie/getMovie",
+  async (id, thunkAPI) => {
+    const url = `${url_base}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
 
     const res = await apiService(url);
 
@@ -71,11 +83,26 @@ export const byDetails = createSlice({
       })
       .addCase(getCredits.fulfilled, (state, action) => {
         state.loading = false;
-        state.credits = action.payload.cast;
+        state.credits = action.payload.cast.splice(0, 20);
       })
       .addCase(getCredits.rejected, (state, action) => {
         state.error = "Erro!";
         state.credits = [];
+        state.loading = false;
+      })
+      .addCase(getMovie.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getMovie.fulfilled, (state, action) => {
+        state.loading = false;
+        state.video = action.payload.results.find(
+          (video) => video.type === "Trailer",
+        );
+      })
+      .addCase(getMovie.rejected, (state, action) => {
+        state.error = "Erro!";
+        state.video = {};
         state.loading = false;
       });
   },

@@ -1,5 +1,49 @@
 import styled from "styled-components";
 
+export const Video = styled.section`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  background-color: ${({ theme }) => theme.colors.slate950_transparent};
+
+  > .video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+
+    > button {
+      align-self: end;
+      margin-bottom: 0.5rem;
+      border: none;
+      background-color: transparent;
+      color: ${({ theme }) => theme.colors.slate100};
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid ${({ theme }) => theme.colors.slate100};
+      cursor: pointer;
+      transition: 0.5s ease;
+
+      &:hover {
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+    > .video {
+      > iframe {
+        width: 320px;
+        height: 180px;
+      }
+    }
+  }
+`;
+
 export const DetailsStyle = styled.section`
   position: relative;
   padding: 10rem 4rem 2rem 4rem;
@@ -31,7 +75,7 @@ export const DetailsStyle = styled.section`
     }
   }
 
-  .background-poster {
+  > .background-poster {
     z-index: 1;
 
     > img {
@@ -82,6 +126,7 @@ export const DetailsStyle = styled.section`
 
     > .overview {
       width: 60%;
+      padding-bottom: 1rem;
       > h4 {
         font-size: ${({ theme }) => theme.fontSize.lg};
         padding-bottom: 0.125rem;
@@ -89,6 +134,21 @@ export const DetailsStyle = styled.section`
 
       > p {
         line-height: 1.3;
+      }
+    }
+
+    > .btn-video {
+      > button {
+        border: none;
+        background-color: ${({ theme }) => theme.colors.slate50};
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.5s ease;
+
+        &:hover {
+          background-color: ${({ theme }) => theme.colors.slate100};
+        }
       }
     }
   }
@@ -115,16 +175,18 @@ export const CreditsStyle = styled.section`
   margin: 0rem 4rem 1rem 4rem;
 
   > div:nth-child(1) {
-    > h2 {
-      font-size: ${({ theme }) => theme.fontSize.xl};
-      font-weight: 500;
-      padding-bottom: 0.125rem;
+    padding-bottom: 0.125rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.slate400};
+    > h4 {
+      font-size: ${({ theme }) => theme.fontSize.lg};
     }
   }
 
   > div:nth-child(2) {
     display: flex;
     flex-direction: column;
+    width: 100%;
     background-color: ${({ theme }) => theme.colors.slate900};
     border-radius: 0.5rem;
 

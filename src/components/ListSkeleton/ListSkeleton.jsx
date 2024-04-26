@@ -57,7 +57,9 @@ const ListSkeleton = ({
   return (
     <MainStyle>
       <section>
-        <h2>{query ? `Pesquisa: ${query}` : title ? title : "Pesquisa"}</h2>
+        <div>
+          <h2>{query ? `Pesquisa: ${query}` : title ? title : "Pesquisa"}</h2>
+        </div>
         {movies.length > 0 ? (
           <>
             <div className="movies">

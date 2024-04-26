@@ -33,6 +33,7 @@ export const theme = {
     slate800: "#1e293b",
     slate900: "#0f172a",
     slate950: "#020617",
+    slate950_transparent: "#020617c7",
     primary: "#F83600",
   },
   fontFamily: {

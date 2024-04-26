@@ -3,7 +3,12 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { getByDetails, reset, getCredits } from "../../slices/byDetails";
+import {
+  getByDetails,
+  reset,
+  getCredits,
+  getMovie,
+} from "../../slices/byDetails";
 import NavBar from "../../components/NavBar/NavBar";
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
@@ -14,13 +19,16 @@ const About = () => {
 
   const dispatch = useDispatch();
 
-  const { details, loading, credits } = useSelector((state) => state.byDetails);
+  const { details, loading, credits, video } = useSelector(
+    (state) => state.byDetails,
+  );
 
-  console.log(credits);
+  console.log(video);
 
   useEffect(() => {
     dispatch(getByDetails(id));
     dispatch(getCredits(id));
+    dispatch(getMovie(id));
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -41,6 +49,7 @@ const About = () => {
           details={details}
           detailsLength={detailsLength}
           credits={credits}
+          video={video}
         />
       </div>
       <Footer />

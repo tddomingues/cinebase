@@ -1,8 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-import { useNavigate } from "react-router-dom";
-
-import { DetailsStyle, CreditsStyle } from "./styles";
+import { DetailsStyle, CreditsStyle, Video } from "./styles";
 import imageDefault from "../../../assets/image-default.png";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { GoStarFill } from "react-icons/go";
@@ -10,10 +8,10 @@ import { GoStarFill } from "react-icons/go";
 import { formatTime } from "../../../utils/formatTime";
 import { formatDate } from "../../../utils/formatDate";
 
-const DetailsSkeleton = ({ detailsLength, details, credits }) => {
-  const navigate = useNavigate();
-
+const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
   const carousel = useRef();
+
+  const [closed, setClosed] = useState(true);
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -24,10 +22,28 @@ const DetailsSkeleton = ({ detailsLength, details, credits }) => {
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
   };
 
+  const handleClosed = () => {
+    setClosed(!closed);
+  };
+
   return (
     <>
       {detailsLength !== 0 && (
         <main>
+          {!closed && (
+            <Video>
+              <div className="video">
+                <button onClick={handleClosed}>X</button>
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.key}`}
+                  frameBorder="0"
+                  width="1280 "
+                  height="720 "
+                ></iframe>
+              </div>
+            </Video>
+          )}
+
           <DetailsStyle>
             <div className="background-image">
               {details.backdrop_path ? (
@@ -69,11 +85,14 @@ const DetailsSkeleton = ({ detailsLength, details, credits }) => {
                 <h4>Sinopse</h4>
                 <p>{details.overview || "..."}</p>
               </div>
+              <div className="btn-video">
+                <button onClick={handleClosed}>Ver Trailer</button>
+              </div>
             </div>
           </DetailsStyle>
           <CreditsStyle>
             <div>
-              <h2>Atores</h2>
+              <h4>Atores</h4>
             </div>
             <div>
               <div className="arrows">
@@ -95,7 +114,6 @@ const DetailsSkeleton = ({ detailsLength, details, credits }) => {
                             : imageDefault
                         }
                         alt={credit.title}
-                        style={{ width: "100px" }}
                       />
                       <h3>{credit.name}</h3>
                     </div>
