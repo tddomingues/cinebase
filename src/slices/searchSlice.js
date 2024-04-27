@@ -54,7 +54,7 @@ export const searchSlice = createSlice({
         state.totalPages = action.payload.total_pages;
       })
       .addCase(getSearch.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.movies = [];
         state.loading = false;
       });

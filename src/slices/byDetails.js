@@ -83,7 +83,7 @@ export const byDetails = createSlice({
         state.details = action.payload;
       })
       .addCase(getByDetails.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.details = {};
         state.loading = false;
       })
@@ -96,7 +96,7 @@ export const byDetails = createSlice({
         state.credits = action.payload.cast.splice(0, 20);
       })
       .addCase(getCredits.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.credits = [];
         state.loading = false;
       })
@@ -111,7 +111,7 @@ export const byDetails = createSlice({
         );
       })
       .addCase(getMovie.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.video = {};
         state.loading = false;
       });

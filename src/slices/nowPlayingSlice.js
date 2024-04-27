@@ -52,7 +52,7 @@ export const nowPlayingSlice = createSlice({
         state.totalPages = action.payload.total_pages;
       })
       .addCase(getNowPlaying.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.movies = [];
         state.loading = false;
       });

@@ -52,7 +52,7 @@ export const popularSlice = createSlice({
         state.totalPages = action.payload.total_pages;
       })
       .addCase(getPopular.rejected, (state, action) => {
-        state.error = "Erro!";
+        state.error = action.payload;
         state.movies = [];
         state.loading = false;
       });
