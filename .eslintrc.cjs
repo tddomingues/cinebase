@@ -1,5 +1,3 @@
-const { node } = require("prop-types");
-
 module.exports = {
   root: true,
   env: { browser: true, es2020: true, node: true },
@@ -15,7 +13,6 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['prettier'],
   rules: {
-    //"react/prop-types": "off",
     "no-unused-vars": "off"
   },
 }
