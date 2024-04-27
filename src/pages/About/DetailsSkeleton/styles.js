@@ -97,14 +97,22 @@ export const DetailsStyle = styled.section`
     > .btn-video {
       > button {
         border: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         background-color: ${({ theme }) => theme.colors.slate50};
+        color: ${({ theme }) => theme.colors.slate950};
         padding: 0.5rem;
         border-radius: 0.5rem;
         cursor: pointer;
         transition: 0.5s ease;
 
+        > svg {
+          font-size: ${({ theme }) => theme.fontSize.xl};
+        }
+
         &:hover {
-          background-color: ${({ theme }) => theme.colors.slate100};
+          background-color: ${({ theme }) => theme.colors.slate200};
         }
       }
     }

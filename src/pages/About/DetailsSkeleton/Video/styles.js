@@ -19,17 +19,19 @@ export const SectionVideo = styled.section`
 
     > button {
       align-self: end;
-      margin-bottom: 0.5rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.125rem;
       border: none;
-      background-color: transparent;
-      color: ${({ theme }) => theme.colors.slate100};
-      padding: 0.5rem;
+      color: ${({ theme }) => theme.colors.slate950};
+      padding: 0.25rem;
       border-radius: 0.5rem;
-      border: 1px solid ${({ theme }) => theme.colors.slate100};
+      background-color: ${({ theme }) => theme.colors.slate50};
       cursor: pointer;
       transition: 0.5s ease;
 
       &:hover {
+        background-color: ${({ theme }) => theme.colors.slate300};
       }
     }
   }

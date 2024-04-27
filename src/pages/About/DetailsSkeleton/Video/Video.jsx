@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
+import { RxCross2 } from "react-icons/rx";
 import { SectionVideo } from "./styles";
 
 const Video = ({ video, handleClosed }) => {
   return (
     <SectionVideo>
       <div className="video">
-        <button onClick={handleClosed}>X</button>
+        <button onClick={handleClosed}>
+          <RxCross2 />
+        </button>
         <iframe
           src={`https://www.youtube.com/embed/${video.key}`}
           frameBorder="0"

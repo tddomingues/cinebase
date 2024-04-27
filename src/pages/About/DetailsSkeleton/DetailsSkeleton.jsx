@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { DetailsStyle } from "./styles";
 import imageDefault from "../../../assets/image-default.png";
 import { GoStarFill } from "react-icons/go";
+import { RiMovieLine } from "react-icons/ri";
 
 import { formatTime } from "../../../utils/formatTime";
 import { formatDate } from "../../../utils/formatDate";
@@ -66,7 +67,10 @@ const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
                 <p>{details.overview || "..."}</p>
               </div>
               <div className="btn-video">
-                <button onClick={handleClosed}>Ver Trailer</button>
+                <button onClick={handleClosed}>
+                  <span>Trailer</span>
+                  <RiMovieLine />
+                </button>
               </div>
             </div>
           </DetailsStyle>
