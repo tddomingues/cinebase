@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 
+//redux
 import { useDispatch, useSelector } from "react-redux";
 import { getPopular } from "../../slices/popularSlice";
 import { getTopRated } from "../../slices/topRatedSlice";
 
+//components
 import NavBar from "../../components/NavBar/NavBar";
 import GenreId from "../../components/GenreId/GenreId";
 import Movies from "./Movies/Movies";

@@ -1,19 +1,26 @@
 import React, { useEffect } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
+
+//proptypes
+import PropTypes from "prop-types";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { getPopular, currentPage } from "../../slices/popularSlice";
+
+//components
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/NavBar/NavBar";
+import ListSkeleton from "../../components/ListSkeleton/ListSkeleton";
 
 const Popular = ({ title }) => {
   const dispatch = useDispatch();
 
-  const { movies, page, loading } = useSelector((state) => state.popularSlice);
+  const { movies, page, loading, totalPages } = useSelector(
+    (state) => state.popularSlice,
+  );
 
-  console.log(movies);
+  console.log(totalPages);
 
   useEffect(() => {
     dispatch(getPopular({ page }));
@@ -31,11 +38,16 @@ const Popular = ({ title }) => {
           title={title}
           page={page}
           loading={loading}
+          totalPages={totalPages}
         />
       </div>
       <Footer />
     </>
   );
+};
+
+Popular.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Popular;

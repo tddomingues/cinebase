@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 
+//router
 import { useParams } from "react-router-dom";
 
+//redux
 import { useSelector, useDispatch } from "react-redux";
 import {
   getByDetails,
@@ -9,6 +11,8 @@ import {
   getCredits,
   getMovie,
 } from "../../slices/byDetails";
+
+//components
 import NavBar from "../../components/NavBar/NavBar";
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";

@@ -1,7 +1,9 @@
 import React from "react";
 
+//styles
 import { Container } from "./styles";
 
+//router
 import { Link } from "react-router-dom";
 
 const NotFound = () => {

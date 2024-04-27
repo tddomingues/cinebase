@@ -1,9 +1,11 @@
 import React from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
+//styles
 import { Container } from "./styles";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
-
-import { NavLink } from "react-router-dom";
 
 const Pagination = ({ paginate, totalPages, page, loading }) => {
   // const pageNumbers = []
@@ -74,6 +76,13 @@ const Pagination = ({ paginate, totalPages, page, loading }) => {
       </nav>
     </Container>
   );
+};
+
+Pagination.propTypes = {
+  paginate: PropTypes.func.isRequired,
+  totalPages: PropTypes.number,
+  page: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Pagination;

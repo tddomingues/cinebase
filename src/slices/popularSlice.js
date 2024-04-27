@@ -34,7 +34,7 @@ export const popularSlice = createSlice({
     reset: (state, action) => {
       state.loading = false;
       state.error = null;
-      //state.page = 1
+      state.page = 1;
     },
     currentPage: (state, action) => {
       state.page = action.payload;

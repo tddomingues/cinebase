@@ -1,5 +1,9 @@
 import React, { useRef } from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
+//styles
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import imageDefault from "../../../../assets/image-default.png";
 import { CarouselStyle } from "./styles";
@@ -47,6 +51,10 @@ const Carousel = ({ credits }) => {
       </div>
     </CarouselStyle>
   );
+};
+
+Carousel.propTypes = {
+  credits: PropTypes.array,
 };
 
 export default Carousel;

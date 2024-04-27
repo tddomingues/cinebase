@@ -1,11 +1,14 @@
 import React from "react";
 
+//router
 import { useNavigate } from "react-router-dom";
+
+//proptypes
+import PropTypes from "prop-types";
 
 //styles
 import { MainStyle } from "./styles";
 import { GoStarFill } from "react-icons/go";
-
 import imageDefault from "../../assets/image-default.png";
 
 //components
@@ -103,6 +106,17 @@ const ListSkeleton = ({
       </section>
     </MainStyle>
   );
+};
+
+ListSkeleton.propTypes = {
+  movies: PropTypes.array.isRequired,
+  currentPage: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  totalPages: PropTypes.number,
+  loading: PropTypes.bool.isRequired,
+  page: PropTypes.number.isRequired,
+  error: PropTypes.object,
+  query: PropTypes.string,
 };
 
 export default ListSkeleton;

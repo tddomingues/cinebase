@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
+//styles
 import { DetailsStyle } from "./styles";
 import imageDefault from "../../../assets/image-default.png";
 import { GoStarFill } from "react-icons/go";
 import { RiMovieLine } from "react-icons/ri";
 
+//utils
 import { formatTime } from "../../../utils/formatTime";
 import { formatDate } from "../../../utils/formatDate";
 
+//components
 import Video from "./Video/Video";
 import Carousel from "./Carousel/Carousel";
 
@@ -79,6 +85,13 @@ const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
       )}
     </>
   );
+};
+
+DetailsSkeleton.propTypes = {
+  detailsLength: PropTypes.number,
+  details: PropTypes.object,
+  video: PropTypes.object,
+  credits: PropTypes.array,
 };
 
 export default DetailsSkeleton;

@@ -1,5 +1,9 @@
 import React from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
+//styles
 import { RxCross2 } from "react-icons/rx";
 import { SectionVideo } from "./styles";
 
@@ -19,6 +23,11 @@ const Video = ({ video, handleClosed }) => {
       </div>
     </SectionVideo>
   );
+};
+
+Video.propTypes = {
+  video: PropTypes.object,
+  handleClosed: PropTypes.func,
 };
 
 export default Video;

@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { currentPage, getByGenre, reset } from "../../slices/byGenreSlice";
@@ -49,6 +52,10 @@ const ByGenre = ({ type }) => {
       <Footer />
     </>
   );
+};
+
+ByGenre.propTypes = {
+  type: PropTypes.number.isRequired,
 };
 
 export default ByGenre;

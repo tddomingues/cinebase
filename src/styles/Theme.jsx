@@ -1,6 +1,9 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
+//proptypes
+import PropTypes from "prop-types";
+
 const round = (num) =>
   num
     .toFixed(7)
@@ -58,3 +61,7 @@ export const theme = {
 export function Theme({ children }) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
+
+Theme.propTypes = {
+  children: PropTypes.node,
+};

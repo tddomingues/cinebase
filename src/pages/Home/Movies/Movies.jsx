@@ -1,7 +1,12 @@
 import React, { useRef } from "react";
 
+//proptypes
+import PropTypes from "prop-types";
+
+//router
 import { useNavigate } from "react-router-dom";
 
+//styles
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { SectionStyle } from "./styles";
 
@@ -52,6 +57,12 @@ const Movies = ({ title, movies, type }) => {
       </div>
     </SectionStyle>
   );
+};
+
+Movies.propTypes = {
+  title: PropTypes.string.isRequired,
+  movies: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default Movies;
