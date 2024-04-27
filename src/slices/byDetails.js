@@ -17,7 +17,11 @@ export const getByDetails = createAsyncThunk(
   async (id, thunkAPI) => {
     const url = `${url_base}/movie/${id}?api_key=${API_KEY}&language=pt-BR`;
 
-    const res = apiService(url);
+    const res = await apiService(url);
+
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
 
     return res;
   },
@@ -30,6 +34,10 @@ export const getCredits = createAsyncThunk(
 
     const res = await apiService(url);
 
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
+
     return res;
   },
 );
@@ -41,7 +49,9 @@ export const getMovie = createAsyncThunk(
 
     const res = await apiService(url);
 
-    console.log(res);
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
 
     return res;
   },

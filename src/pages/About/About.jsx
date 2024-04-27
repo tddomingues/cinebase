@@ -12,7 +12,7 @@ import {
 import NavBar from "../../components/NavBar/NavBar";
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
-import DetailsSkeleton from "./components/DetailsSkeleton";
+import DetailsSkeleton from "./DetailsSkeleton/DetailsSkeleton";
 
 const About = () => {
   const { id } = useParams();
@@ -39,7 +39,6 @@ const About = () => {
 
   if (loading && detailsLength !== 0) return <Loading />;
   if (detailsLength.length === 0) return <Loading />;
-  if (credits.length === 0) return <Loading />;
 
   return (
     <>

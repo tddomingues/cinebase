@@ -14,10 +14,14 @@ const initialState = {
 
 export const getNowPlaying = createAsyncThunk(
   "movie/getNowPlaying",
-  async ({ page }) => {
+  async ({ page }, thunkAPI) => {
     const url = `${url_base}/movie/now_playing?api_key=${API_KEY}&page=${page}&language=pt-BR`;
 
     const res = await apiService(url);
+
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
 
     return res;
   },

@@ -14,10 +14,14 @@ const initialState = {
 
 export const getPopular = createAsyncThunk(
   "movie/getPopular",
-  async ({ page }) => {
+  async ({ page }, thunkAPI) => {
     const url = `${url_base}/movie/popular?api_key=${API_KEY}&page=${page}&language=pt-BR`;
 
     const res = await apiService(url);
+
+    if (res.success === false) {
+      return thunkAPI.rejectWithValue({ message: res.status_message });
+    }
 
     return res;
   },

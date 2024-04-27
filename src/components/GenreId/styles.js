@@ -25,8 +25,8 @@ export const SectionStyle = styled.section`
     }
   }
 
-  @media (max-width: 720px) {
-    margin: 1rem;
+  @media (max-width: 1199px) {
+    margin: 2rem 1rem;
 
     > div {
       width: 100%;

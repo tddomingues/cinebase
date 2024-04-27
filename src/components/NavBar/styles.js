@@ -4,7 +4,7 @@ export const ContainerNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
+  margin: 1rem 4rem;
   background-color: ${({ theme }) => theme.colors.slate950};
 
   > a > h1 {
@@ -85,8 +85,12 @@ export const ContainerNav = styled.nav`
     }
   }
 
-  @media (max-width: 720px) {
-    padding: 1rem;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin: 1rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     flex: 1;

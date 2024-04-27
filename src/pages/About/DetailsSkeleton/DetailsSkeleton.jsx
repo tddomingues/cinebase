@@ -1,26 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
-import { DetailsStyle, CreditsStyle, Video } from "./styles";
+import { DetailsStyle } from "./styles";
 import imageDefault from "../../../assets/image-default.png";
-import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { GoStarFill } from "react-icons/go";
 
 import { formatTime } from "../../../utils/formatTime";
 import { formatDate } from "../../../utils/formatDate";
 
+import Video from "./Video/Video";
+import Carousel from "./Carousel/Carousel";
+
 const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
-  const carousel = useRef();
-
   const [closed, setClosed] = useState(true);
-
-  const handleNext = (e) => {
-    e.preventDefault();
-    carousel.current.scrollLeft += carousel.current.offsetWidth;
-  };
-
-  const handlePrevious = (e) => {
-    carousel.current.scrollLeft -= carousel.current.offsetWidth;
-  };
 
   const handleClosed = () => {
     setClosed(!closed);
@@ -30,20 +21,9 @@ const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
     <>
       {detailsLength !== 0 && (
         <main>
-          {!closed && (
-            <Video>
-              <div className="video">
-                <button onClick={handleClosed}>X</button>
-                <iframe
-                  src={`https://www.youtube.com/embed/${video.key}`}
-                  frameBorder="0"
-                  width="1280 "
-                  height="720 "
-                ></iframe>
-              </div>
-            </Video>
+          {!closed && video && (
+            <Video video={video} handleClosed={handleClosed} />
           )}
-
           <DetailsStyle>
             <div className="background-image">
               {details.backdrop_path ? (
@@ -90,37 +70,7 @@ const DetailsSkeleton = ({ detailsLength, details, credits, video }) => {
               </div>
             </div>
           </DetailsStyle>
-          <CreditsStyle>
-            <div>
-              <h4>Atores</h4>
-            </div>
-            <div>
-              <div className="arrows">
-                <span onClick={handlePrevious}>
-                  <MdOutlineNavigateBefore />
-                </span>
-                <span onClick={handleNext}>
-                  <MdOutlineNavigateNext />
-                </span>
-              </div>
-              <div ref={carousel} className="carousel">
-                {credits &&
-                  credits.map((credit) => (
-                    <div key={credit.id}>
-                      <img
-                        src={
-                          credit.profile_path
-                            ? `https://image.tmdb.org/t/p/w185/${credit.profile_path}`
-                            : imageDefault
-                        }
-                        alt={credit.title}
-                      />
-                      <h3>{credit.name}</h3>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </CreditsStyle>
+          {credits.length !== 0 && <Carousel credits={credits} />}
         </main>
       )}
     </>

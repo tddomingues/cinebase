@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainStyle = styled.main`
-  padding: 1rem 4rem;
+  margin: 1rem 4rem;
   > section {
     > div:nth-child(1) {
       padding-bottom: 0.125rem;
@@ -65,8 +65,8 @@ export const MainStyle = styled.main`
     }
   }
 
-  @media (max-width: 720px) {
-    padding: 1rem;
+  @media (max-width: 1199px) {
+    margin: 1rem;
 
     > section {
       > .movies {

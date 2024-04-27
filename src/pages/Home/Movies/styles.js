@@ -87,7 +87,7 @@ export const SectionStyle = styled.section`
     }
   }
 
-  @media (max-width: 720px) {
+  @media screen and (max-width: 1199px) {
     margin: 2rem 1rem;
   }
 `;

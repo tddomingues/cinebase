@@ -6,7 +6,7 @@ import { getTopRated } from "../../slices/topRatedSlice";
 
 import NavBar from "../../components/NavBar/NavBar";
 import GenreId from "../../components/GenreId/GenreId";
-import Movies from "./components/Movies";
+import Movies from "./Movies/Movies";
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
 
