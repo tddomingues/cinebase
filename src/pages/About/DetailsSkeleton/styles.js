@@ -83,6 +83,7 @@ export const DetailsStyle = styled.section`
     > .overview {
       width: 60%;
       padding-bottom: 1rem;
+
       > h4 {
         font-size: ${({ theme }) => theme.fontSize.lg};
         padding-bottom: 0.125rem;
@@ -122,6 +123,16 @@ export const DetailsStyle = styled.section`
       align-self: start;
       > .overview {
         width: 100%;
+
+        > h4 {
+          font-size: ${({ theme }) => theme.fontSize.lg};
+          border-bottom: 1px solid ${({ theme }) => theme.colors.slate400};
+          padding-bottom: 0.125rem;
+        }
+
+        > p {
+          padding-top: 0.5rem;
+        }
       }
     }
   }

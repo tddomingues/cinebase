@@ -6,13 +6,14 @@ export const SectionStyle = styled.section`
   > div:nth-child(1) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     padding-bottom: 0.125rem;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.slate400};
 
     > h2 {
       font-weight: 400;
+      font-size: ${({ theme }) => theme.fontSize.xl};
     }
 
     > p {

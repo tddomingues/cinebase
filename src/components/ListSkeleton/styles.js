@@ -10,6 +10,7 @@ export const MainStyle = styled.main`
 
       > h2 {
         font-weight: 400;
+        font-size: ${({ theme }) => theme.fontSize.xl};
       }
     }
 
